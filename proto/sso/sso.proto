@@ -11,7 +11,9 @@ service Auth {
 }
 
 message RegisterRequest {
+  // @gotags: validate:"required,email"
   string email = 1;
+  // @gotags: validate:"required,min=8,max=30"
   string password = 2;
 }
 
@@ -20,8 +22,11 @@ message RegisterResponse {
 }
 
 message LoginRequest {
+  // @gotags: validate:"required,email"
   string email = 1;
+  // @gotags: validate:"required"
   string password = 2;
+  // @gotags: validate:"required"
   int32 app_id = 3;
 }
 
@@ -30,6 +35,7 @@ message LoginResponse {
 }
 
 message IsAdminRequest {
+  // @gotags: validate:"required"
   int64 user_id = 1;
 }
 

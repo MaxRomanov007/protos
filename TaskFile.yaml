@@ -7,3 +7,5 @@ tasks:
     desc: "Generate code from proto files"
     cmds:
       - protoc -I proto proto/sso/sso.proto --go_out=./gen/go --go_opt=paths=source_relative --go-grpc_out=./gen/go --go-grpc_opt=paths=source_relative
+      - go run github.com/favadi/protoc-go-inject-tag -input="D:\GoProjects\sso\protos\gen\go\sso\sso.pb.go"
+      - go run github.com/favadi/protoc-go-inject-tag -input="D:\GoProjects\sso\protos\gen\go\sso\sso.pb.go" -remove_tag_comment

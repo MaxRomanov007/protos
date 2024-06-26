@@ -25,8 +25,10 @@ type RegisterRequest struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Email    string `protobuf:"bytes,1,opt,name=email,proto3" json:"email,omitempty"`
-	Password string `protobuf:"bytes,2,opt,name=password,proto3" json:"password,omitempty"`
+	 
+	Email string `protobuf:"bytes,1,opt,name=email,proto3" json:"email,omitempty" validate:"required,email"`
+	 
+	Password string `protobuf:"bytes,2,opt,name=password,proto3" json:"password,omitempty" validate:"required,min=8,max=30"`
 }
 
 func (x *RegisterRequest) Reset() {
@@ -127,9 +129,12 @@ type LoginRequest struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Email    string `protobuf:"bytes,1,opt,name=email,proto3" json:"email,omitempty"`
-	Password string `protobuf:"bytes,2,opt,name=password,proto3" json:"password,omitempty"`
-	AppId    int32  `protobuf:"varint,3,opt,name=app_id,json=appId,proto3" json:"app_id,omitempty"`
+	 
+	Email string `protobuf:"bytes,1,opt,name=email,proto3" json:"email,omitempty" validate:"required,email"`
+	 
+	Password string `protobuf:"bytes,2,opt,name=password,proto3" json:"password,omitempty" validate:"required"`
+	 
+	AppId int32 `protobuf:"varint,3,opt,name=app_id,json=appId,proto3" json:"app_id,omitempty" validate:"required"`
 }
 
 func (x *LoginRequest) Reset() {
@@ -237,7 +242,8 @@ type IsAdminRequest struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	UserId int64 `protobuf:"varint,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	 
+	UserId int64 `protobuf:"varint,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty" validate:"required"`
 }
 
 func (x *IsAdminRequest) Reset() {
